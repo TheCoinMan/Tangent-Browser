@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tangent</title>
+		<link rel="icon" type="image/x-icon" href="favicon.png">
+	</head>
+	
+
+	
+	<body>
+
+<button class="settingsButton" id="settingsButton">Settings</button>
+
+<div class="hidden" id="settingsMenu">
+    <button class="settingsClose" id="settingsClose" onclick="menuClose();">Close</button>
+    <br>
+    <p>Search Engine:</p>
+    <button class="searchEngineChosen" id="google" onclick="googleChange();">Google</button>
+    <button class="searchEngineChooser" id="bing" onclick="bingChange();">Bing</button>
+    <button class="searchEngineChooser" id="yahoo" onclick="yahooChange();">Yahoo</button>
+    <p class="hiddenBreak">.</p>
+</div>
+
+<div class="homepageBreaks" id="homepageBreaks">
+    <br><br><br><br><br>
+</div>
+
+<div class="homepage" id="homepage">
+        <p class="searchText">Search: </p>
+        <center><input onkeyup="if(event.keyCode===13){searchBtn.click()}" class="searchBox" type="text" name="" id="query" value=""><button class="searchButton" id="searchBtn">Search</button></center>
+</div>
+
+
+<div class="socialMediaNav">
+    <a id="discord" href="https://www.discord.com/app"><img src="discord.png" /></a>
+    <a id="twitch" href="https://www.twitch.com"><img src="twitch.png" /></a>
+    <a id="youtube" href="https://www.youtube.com"><img src="youtube.png" /></a>
+    <a id="netflix" href="https://www.netflix.com"><img src="netflix.png" /></a>
+</div>
+
+
+
+
+    
+
+
+		<style>
+body {
+  background-image: url("BG1.png");
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  font-size: 18px;
+  background-size: 1366px, 768px;
+}
+
+.homepageBreaks {
+    
+}
+
+.searchEngineChooser {
+    background-color: #ffffff;
+    color: #000000;
+	font-size: 20px;
+	height: 30px;
+	width: 98%;
+}
+
+.searchEngineChosen {
+    background-color: #000000;
+    color: #ffffff;
+	font-size: 20px;
+	height: 30px;
+	width: 98%;
+}
+
+.settingsClose {
+    background-color: #ffffff;
+    color: #000000;
+	font-size: 20px;
+	height: 30px;
+	width: 98%;
+}
+
+.settingsMenu {
+    padding-top: 5px;
+    padding-left: 5px;
+    background-color: #ebebeb;
+    width: 350px;
+    height: 100%;
+}
+
+.settingsButton {
+    background-color: #ffffff;
+    color: #000000;
+	font-size: 20px;
+	height: 40px;
+	width: 100px;
+}
+
+.socialMediaNav {
+    padding-top: 5px;
+    padding-left: 30%;
+}
+
+.hiddenBreak {
+    color: #000000;
+    font-size:10px;
+}
+
+.homepage {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  font-size: 25px;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+.searchText {
+    padding-left: 44%;
+}
+
+.searchButton {
+    background-color: #ffffff;
+    color: #000000;
+	font-size: 20px;
+	height: 40px;
+	width: 100px;
+}
+
+.searchBox {
+	font-size: 20px;
+	height: 40px;
+    width: 450px;
+}
+
+.hidden {
+	display: none;
+}
+
+.shown {
+	display: block;
+}
+
+		</style>
+		
+		<script>
+		    var searchEngine = "https://www.google.com/search?q="
+			
+			function googleChange() {
+			    searchEngine = "https://www.google.com/search?q="
+			    document.getElementById("google").className = "searchEngineChosen"
+			    document.getElementById("bing").className = "searchEngineChooser"
+			    document.getElementById("yahoo").className = "searchEngineChooser"
+			}
+			
+			function bingChange() {
+			    searchEngine = "https://www.bing.com/search?q="
+			    document.getElementById("google").className = "searchEngineChooser"
+			    document.getElementById("bing").className = "searchEngineChosen"
+			    document.getElementById("yahoo").className = "searchEngineChooser"
+			}
+			
+			function yahooChange() {
+			    searchEngine = "https://search.yahoo.com/search?p="
+			    document.getElementById("google").className = "searchEngineChooser"
+			    document.getElementById("bing").className = "searchEngineChooser"
+			    document.getElementById("yahoo").className = "searchEngineChosen"
+			}
+		
+		    var query = document.getElementById("query");
+		    var searchBtn = document.getElementById("searchBtn");
+		    
+		    searchBtn.onclick = function() {
+		        var url = searchEngine + query.value;
+		        window.open(url,"_self");
+		    }
+			
+		
+		document.getElementById("settingsButton").onclick = function() {
+		    document.getElementById("settingsButton").className = "hidden";
+		    document.getElementById("settingsMenu").className = "settingsMenu";
+            document.getElementById("homepageBreaks").className = "hidden";
+		}
+		
+		document.getElementById("settingsClose").onclick = function() {
+		    document.getElementById("settingsButton").className = "settingsButton";
+		    document.getElementById("settingsMenu").className = "hidden";
+            document.getElementById("homepageBreaks").className = "homepageBreaks";
+		}
+</script>
